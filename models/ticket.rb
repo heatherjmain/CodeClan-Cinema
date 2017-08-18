@@ -17,5 +17,15 @@ class Ticket
     @id = ticket["id"].to_i
   end
 
+  def self.map(rows)
+    return rows.map {|row| Ticket.new(row)}
+  end
+
+  def self.all()
+    sql = "SELECT * FROM tickets"
+    values = []
+    tickets = SqlRunner.run(sql, values)
+    return Ticket.map(tickets)
+  end
 
 end
