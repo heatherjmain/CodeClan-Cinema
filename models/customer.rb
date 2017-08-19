@@ -30,6 +30,28 @@ class Customer
     return result
   end
 
+  def update()
+    sql = "UPDATE customers SET (name, funds) = ($1, $2) WHERE ID = $3;"
+    values = [@name, @funds, @id]
+    result = SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE FROM customers WHERE id = $1;"
+    SqlRunner.run(sql, [@id])
+  end
+
+  def films_booked()
+    sql = "SELECT * FROM films
+    INNER JOIN tickets ON films.id = tickets.film_id
+    WHERE customer_id = $1;"
+    values = [@id]
+    hash = SqlRunner.run(sql, values)
+    films = hash.map {|hash| hash["title"]}
+    # films = Customer.map(hash) ?????????
+    return films
+  end
+
 
 
 

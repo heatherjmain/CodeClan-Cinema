@@ -28,4 +28,9 @@ class Ticket
     return Ticket.map(tickets)
   end
 
+
+def delete()
+  sql = "DELETE FROM tickets WHERE id = $1;"
+  SqlRunner.run(sql, [@id])
+end
 end
