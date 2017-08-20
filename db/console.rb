@@ -3,6 +3,12 @@ require("pry-byebug")
 require_relative("../models/customer")
 require_relative("../models/film")
 require_relative("../models/ticket")
+require_relative("../models/screening")
+
+Customer.delete_all()
+Film.delete_all()
+Screening.delete_all()
+Ticket.delete_all()
 
 
 
@@ -76,6 +82,10 @@ ticket8 = Ticket.new({
   })
 ticket8.save()
 
+
+
+screening1 = Screening.new({title: "Harry Potter", start_time: "18:30"})
+screening1.save()
 
 
 binding.pry
