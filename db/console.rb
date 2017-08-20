@@ -84,8 +84,41 @@ ticket8.save()
 
 
 
-screening1 = Screening.new({title: "Harry Potter", start_time: "18:30"})
+screening1 = Screening.new({
+  "film_id" => film3.id,
+  "start_time" => "18:30"
+  })
 screening1.save()
+
+screening2 = Screening.new({
+  "film_id" => film1.id,
+  "start_time" => "19:30"
+  })
+screening2.save()
+
+screening3 = Screening.new({
+  "film_id" => film2.id,
+  "start_time" => "20:00"
+  })
+screening3.save()
+
+screening4 = Screening.new({
+  "film_id" => film4.id,
+  "start_time" => "22:30"
+  })
+screening4.save()
+
+screening5 = Screening.new({
+  "film_id" => film2.id,
+  "start_time" => "22:30"
+  })
+screening5.save()
+
+screening6 = Screening.new({
+  "film_id" => film4.id,
+  "start_time" => "00:00"
+  })
+screening6.save()
 
 
 binding.pry
